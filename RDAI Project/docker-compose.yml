@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  stable-diffusion:
+    build: .
+    container_name: stable-diffusion-server
+    ports:
+      - "8000:8000"
+    volumes:
+      # - ./sd2_model:/app/sd2_model  # Mount your saved model
+      - ./output:/opt/rdaiproj/generated_images
+    environment:
+      - CUDA_VISIBLE_DEVICES=0  # Ensure it runs on GPU
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
