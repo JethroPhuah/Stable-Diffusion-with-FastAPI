@@ -22,7 +22,13 @@ git clone <your-repo-url>
 cd <your-repo-folder>
 ```
 
-### 2. Build and start the container
+### 2. Build a pretrained model
+Run the following command to build and save the pretrained model to the folder 'sd2_model'
+```sh
+python model.py
+```
+
+### 3. Build and start the container
 Run the following command to build the Docker image:
 ```sh
 docker-compose build
@@ -33,7 +39,7 @@ docker-compose up
 ```
 This will launch a FastAPI server on `http://localhost:8000`.
 
-### 3. Run the test script
+### 4. Run the test script
 Once the container is running, open another terminal and execute:
 ```sh
 python test.py
